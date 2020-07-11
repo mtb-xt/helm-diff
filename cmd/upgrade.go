@@ -97,7 +97,7 @@ func newChartCommand() *cobra.Command {
 	f.BoolVar(&diff.includeTests, "include-tests", false, "enable the diffing of the helm test hooks")
 	f.BoolVar(&diff.devel, "devel", false, "use development versions, too. Equivalent to version '>0.0.0-0'. If --version is set, this is ignored.")
 	f.StringArrayVar(&diff.suppressedKinds, "suppress", []string{}, "allows suppression of the values listed in the diff output")
-	f.IntVarP(&diff.outputContext, "context", "C", -1, "output NUM lines of context around changes")
+	f.IntVarP(&diff.outputContext, "context", "C", 5, "output NUM lines of context around changes")
 	f.BoolVar(&diff.disableOpenAPIValidation, "disable-openapi-validation", false, "disables rendered templates validation against the Kubernetes OpenAPI Schema")
 	f.StringVar(&diff.postRenderer, "post-renderer", "", "the path to an executable to be used for post rendering. If it exists in $PATH, the binary will be used, otherwise it will try to look for the executable at the given path")
 	if !isHelm3() {
